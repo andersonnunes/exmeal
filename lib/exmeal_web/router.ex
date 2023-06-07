@@ -7,6 +7,8 @@ defmodule ExmealWeb.Router do
 
   scope "/api", ExmealWeb do
     pipe_through :api
+
+    resources "/meals", MealsController, except: [:new, :edit]
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

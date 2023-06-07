@@ -1,5 +1,7 @@
 # Exmeal
 
+Desafio 01 - CRUD - Refeições diárias
+
 To start your Phoenix server:
 
   * Run `mix setup` to install and setup dependencies
