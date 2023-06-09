@@ -10,6 +10,8 @@ defmodule ExmealWeb.Router do
 
     resources "/meals", MealsController, except: [:new, :edit]
     resources "/users", UsersController, except: [:new, :edit]
+
+    get "/users/repos/:username", UsersController, :github_repos
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

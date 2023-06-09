@@ -11,4 +11,6 @@ defmodule ExmealWeb.UsersJSON do
   end
 
   def show(%{user: %User{} = user}), do: %{user: user}
+
+  def show_repos(%{repos: repos}), do: %{repos: repos}
 end

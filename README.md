@@ -1,7 +1,8 @@
 # Exmeal
 
 Desafio 01 - CRUD - Refeições diárias \
-Desafio 02 - Relacionamento de entidades
+Desafio 02 - Relacionamento de entidades \
+Desafio 03 - Consumindo APIs
 
 To start your Phoenix server:
 

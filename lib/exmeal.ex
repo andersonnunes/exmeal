@@ -9,6 +9,8 @@ defmodule Exmeal do
   alias Exmeal.Users.Get, as: UserGet
   alias Exmeal.Users.Update, as: UserUpdate
 
+  alias Exmeal.Github.Client, as: GithubClient
+
   defdelegate create_meal(params), to: MealCreate, as: :call
   defdelegate delete_meal(id), to: MealDelete, as: :call
   defdelegate get_meal_by_id(id), to: MealGet, as: :call
@@ -18,4 +20,6 @@ defmodule Exmeal do
   defdelegate delete_user(id), to: UserDelete, as: :call
   defdelegate get_user_by_id(id), to: UserGet, as: :call
   defdelegate update_user(params), to: UserUpdate, as: :call
+
+  defdelegate get_repos_github(username), to: GithubClient, as: :get_repos
 end

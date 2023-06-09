@@ -36,4 +36,12 @@ defmodule ExmealWeb.UsersController do
       |> render(:show, user: user)
     end
   end
+
+  def github_repos(conn, %{"username" => username}) do
+    with {:ok, repos } <- Exmeal.get_repos_github(username) do
+      conn
+      |> put_status(:ok)
+      |> render(:show_repos, repos: repos)
+    end
+  end
 end
