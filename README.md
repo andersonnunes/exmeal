@@ -2,7 +2,8 @@
 
 Desafio 01 - CRUD - Refeições diárias \
 Desafio 02 - Relacionamento de entidades \
-Desafio 03 - Consumindo APIs
+Desafio 03 - Consumindo APIs \
+Desafio 04 - Testando requisições com bypass
 
 To start your Phoenix server:
 

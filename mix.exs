@@ -54,7 +54,8 @@ defmodule Exmeal.MixProject do
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.16.1", only: :test},
       {:ex_machina, "~> 2.7", only: :test},
-      {:tesla, "~> 1.7"}
+      {:tesla, "~> 1.7"},
+      {:bypass, "~> 2.1", only: :test}
     ]
   end
 

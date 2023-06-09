@@ -1,22 +1,23 @@
 defmodule Exmeal.Github.Client do
   use Tesla
 
+  alias Exmeal.Error
   alias Tesla.Env
 
   plug Tesla.Middleware.Headers, [{"user-agent", "Tesla"}]
+  plug Tesla.Middleware.JSON
 
   @base_url "https://api.github.com/users"
 
-  def get_repos(username) do
-    "#{@base_url}/#{username}/repos"
+  def get_repos(url \\ @base_url, username) do
+    "#{url}/#{username}/repos"
     |> get()
     |> handle_get()
   end
 
-  def handle_get({:ok, %Env{status: 200, body: body}}) do
+  defp handle_get({:ok, %Env{status: 200, body: body}}) do
     user_info =
       body
-      |> Jason.decode!()
       |> Enum.map(fn %{
                        "id" => id,
                        "name" => name,
@@ -34,5 +35,13 @@ defmodule Exmeal.Github.Client do
       end)
 
     {:ok, user_info}
+  end
+
+  defp handle_get({:ok, %Env{status: 404, body: %{"message" => "Not Found"}}}) do
+    {:error, Error.build(:not_found, "User not found!")}
+  end
+
+  defp handle_get({:error, reason}) do
+    {:error, Error.build(:bad_request, reason)}
   end
 end
