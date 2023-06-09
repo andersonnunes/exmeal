@@ -3,8 +3,10 @@ defmodule ExmealWeb.MealsJSON do
 
   def create(%{meal: %Meal{} = meal}) do
     %{
-      message: "Meal created!",
-      meal: meal
+      meals: %{
+        meal: meal
+      },
+      message: "Meal created!"
     }
   end
 
